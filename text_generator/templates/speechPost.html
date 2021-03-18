@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.5/p5.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.5/addons/p5.dom.js"></script>
+    <script src="{{ url_for('static',filename='lib/p5.speech.js') }}"></script>
+    <script src="{{ url_for('static',filename='lib/p5.sound.js') }}"></script>
+    <div class="content-section">
+        <form id="myForm" method="POST" action="{{ url_for('generator.handle_poetrySave') }}">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Generate poetry base on people's conversation</legend>
+                    <div class="form-group">
+                        {{ form.poetry.label(class="form-control-label") }}
+                    </div>
+                    <div id="result"></div>
+{#                    <div class="form-group">#}
+{#                        {{ form.submit(class="btn btn-outline-info") }}#}
+{#                    </div>#}
+                    <div id="sketch-div"></div>
+            </fieldset>
+        </form>
+    </div>
+
+<script>
+    // speech recognition
+    var speechRec = new p5.SpeechRec('en-US',gotSpeech);
+    {#speechRec.continuous = true;#}
+    {#speechRec.interimResults = false;#}
+    var resultWord;
+
+    function setup(){
+        var canvas = createCanvas(displayWidth/2,displayHeight/2);
+        canvas.parent('sketch-div');
+        context = canvas.elt.getContext('2d')
+        video = createCapture(VIDEO);
+        video.hide();
+        background(0);
+
+  		// speech
+  		speechRec.start();
+  		speechRec.onEnd = speechRecEnd;
+  	}
+
+    async function draw() {
+        background(255);
+        {#image(video, 100, 100, 100, 100);#}
+    }
+
+  	// begin speak
+  	function gotSpeech(){
+        {#resultWord = speechRec.resultString.split(' ').pop();#}
+  		resultWord = speechRec.resultString;
+	  	console.log(speechRec.resultString);
+    }
+
+	function speechRecEnd(){
+		speechRec.start();
+	}
+
+   let totalTime = 0;
+   var int = self.setInterval("clock()",1000);
+   function clock() {
+       totalTime++;
+       var timeStr;
+       if (totalTime % 10 == 0) {
+           timeStr = totalTime
+           do_ajax()
+       }
+   }
+
+       function do_ajax() {
+           var req = new XMLHttpRequest();
+           var result = document.getElementById('result');
+           req.onreadystatechange = function () {
+               if (this.readyState == 4 && this.status == 200) {
+                   result.innerHTML = this.responseText;
+               } else {
+               }
+           }
+
+           req.open('POST', '/speechpost/new', true);
+           req.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+           if (resultWord == "") return;
+           req.send("name=" + resultWord);
+       }
+</script>
+
+<style>
+    #sketch-div{
+      position: absolute;
+      width: 0%;
+      height: 0%;
+    }
+</style>
+{% endblock content %}
+
+

@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    {% for user in posts %}
+    <article class="media content-section">
+        <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="#">{{ user.author.username }} </a>
+                <small class="text-muted">{{ user.date_posted.strftime('%Y-%m-%d') }} </small>
+            </div>
+            <h2><a class="article-title" href="{{ url_for('generator.post',post_id=user.id) }}">{{ user.title }} </a></h2>
+            <p class="article-content">{{ user.content }}</p>
+            <p class="article-content">{{ user.generated }}</p>
+        </div>
+    </article>
+    {% endfor %}
+
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Input some texts</legend>
+                    <div class="form-group">
+                        {{ form.inputText.label(class="form-control-label") }}
+                        {{ form.inputText(class="form-control form-control-lg") }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.submit(class="btn btn-outline-ino") }}
+                    </div>
+            </fieldset>
+        </form>
+
+    </div>
+    <style>
+        body{
+            background-color: darkslateblue;
+        }
+    </style>
+{% endblock content %}

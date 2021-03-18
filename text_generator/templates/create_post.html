@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Create an AI poetry</legend>
+                    <div class="form-group">
+                        {{ form.title.label(class="form-control-label") }}
+                        {% if form.title.errors %}
+                            {{ form.title(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.title.errors %}
+                                    <span> {{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.title(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.content.label(class="form-control-label") }}
+                        {% if form.content.errors %}
+                            {{ form.content(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.content.errors %}
+                                    <span> {{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.content(class="form-control form-control-lg") }}
+                        {% endif %}
+                        {% if form.poetry.data %}
+                            {{ form.poetry.label(class="form-control-label") }}
+                            {{ form.poetry(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.generate(class="btn btn-outline-info") }}
+                    </div>
+                    <div class="form-group">
+                        {% if form.poetry.data %}
+                        {{ form.submit(class="btn btn-outline-info") }}
+                        {% endif %}
+                    </div>
+            </fieldset>
+        </form>
+    </div>
+{% endblock content %}
