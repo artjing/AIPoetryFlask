@@ -15,3 +15,7 @@ chromium-browser --start-fullscreen http://ec2-3-142-77-221.us-east-2.compute.am
 http://3.142.77.221:8080/indexpoetry
 
 http://3.142.77.221:8080/mappoetry
+
+https://www.jianshu.com/p/7ea356dbc415
+
+https://blog.csdn.net/qq_46620129/article/details/110870984
