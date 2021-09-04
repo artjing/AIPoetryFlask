@@ -24,3 +24,5 @@ https://www.codeleading.com/article/82714446583/
 
 
 python demo_spade.py live -c cocostuff164k.yaml -m checkpoints/deeplab/deeplabv2_resnet101_msc-cocostuff164k-100000.pth --dataset_mode coco --dataroot SPADE/datasets/coco_stuff/ --checkpoints_dir checkpoints/spade --exp_name coco_pretrained
+
+https://ngc.nvidia.com/catalog/containers/nvidia:l4t-pytorch
