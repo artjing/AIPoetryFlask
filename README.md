@@ -21,3 +21,6 @@ https://www.jianshu.com/p/7ea356dbc415
 https://blog.csdn.net/qq_46620129/article/details/110870984
 
 https://www.codeleading.com/article/82714446583/
+
+
+python demo_spade.py live -c cocostuff164k.yaml -m checkpoints/deeplab/deeplabv2_resnet101_msc-cocostuff164k-100000.pth --dataset_mode coco --dataroot SPADE/datasets/coco_stuff/ --checkpoints_dir checkpoints/spade --exp_name coco_pretrained
