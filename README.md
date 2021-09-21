@@ -1,30 +1,13 @@
 # AIPoetryFlask
 
-http://ec2-3-142-77-221.us-east-2.compute.amazonaws.com:8080/
+#### AWS Deploy
+#### Real time AI poetry generating
+#### Web client
 
-https://idmnyu.github.io/p5.js-speech/examples/04simplerecognition.html
+The hidden space is a project that explores the relationship between AI software systems, feedback loop, space of imagination, and collective memory while speculating on how technology and humans are going to coevolve and reshape each other in the posthuman era.
 
-https://watson-speech.mybluemix.net/
+This project includes a physical installation, a data-collecting wearable device, and AI poetry generating software. The installation part will be put in the exhibition space to display real-time generated AI poems. For the wearable part, the performer will bring it to roam the city. The poems will be generated based on what segmented information or words she is going to collect on the way.
 
-https://mdn.github.io/web-speech-api/speech-color-changer/
+I am going to explore how the imaginary world constructed by AI texts expanded our imagined space. This is a hidden space. How the feedback loop happens in a dynamic way between AI systems and our interactions. It is also about using a poetic way to reveal the hidden power that controls our body, unconscious routines, and social ideology.
 
-chrome://flags/#unsafely-treat-insecure-origin-as-secure
-
-chromium-browser --start-fullscreen http://ec2-3-142-77-221.us-east-2.compute.amazonaws.com:8080/
-
-http://3.142.77.221:8080/indexpoetry
-
-http://3.142.77.221:8080/mappoetry
-
-https://www.jianshu.com/p/7ea356dbc415
-
-https://blog.csdn.net/qq_46620129/article/details/110870984
-
-https://www.codeleading.com/article/82714446583/
-
-
-python demo_spade.py live -c cocostuff164k.yaml -m checkpoints/deeplab/deeplabv2_resnet101_msc-cocostuff164k-100000.pth --dataset_mode coco --dataroot SPADE/datasets/coco_stuff/ --checkpoints_dir checkpoints/spade --exp_name coco_pretrained
-
-https://ngc.nvidia.com/catalog/containers/nvidia:l4t-pytorch
-
-https://www.freesion.com/article/44501219946/
+<img src="http://52.14.75.36/wordpress/wp-content/uploads/2021/03/IMG_8554-2048x1365.jpg" />  
